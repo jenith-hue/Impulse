@@ -13,6 +13,45 @@
             text-align: center;
         }
     </style>
+    <script>
+        window.onload = function () {
+        
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            exportEnabled: true,
+            theme: "light2",
+            title:{
+                text: "Your Body Parameters"
+            },
+            axisY: {
+                title: "Percentage",
+                suffix: "%",
+                reversed: false
+            },
+            axisX2: {
+                tickThickness: 0,
+                labelAngle: 0
+            },
+            data: [{
+                type: "column",
+                axisXType: "secondary",
+                yValueFormatString: "# percent",
+                  indexLabelFontSize: 16,
+                dataPoints: [
+                    { y: 10, label: "Anti-cyclic citrullinated peptide" },
+                    { y: 20, label: "Antinuclear antibody" },
+                    { y: 30, label: "Uric acid" },
+                    { y: 40, label: "C-reactive protein"},
+                    { y: 50, label: "Erythrocyte sedimentation rate" },
+                    { y: 60, label: "Rheumatoid factor" },
+                    { y: 70, label: "Lyme serology" }
+                ]
+            }]
+        });
+        chart.render();
+        
+        }
+        </script>
 </head>
 
 <body>
@@ -48,6 +87,34 @@
             </div>
         </div>
     </div>
+    <div id="piechart" style="margin-left: 750px;"></div>
+    <div id="chartContainer" style="height: 370px; width: 98%;"></div>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Results'],
+  ['Yes', 8],
+  ['No', 2]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Results', 'width':700, 'height':500};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>

@@ -104,12 +104,12 @@ def Contact():
 
 @app.route("/infected")
 def Infected():
-    return render_template("Infected.htm", disease="Nothing")
+    return render_template("page.html", disease="Nothing")
 
 
 @app.route("/noninfected")
 def NonInfected():
-    return render_template("NonInfected.htm")
+    return render_template("page.html")
 
 
 
